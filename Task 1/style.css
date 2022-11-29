@@ -63,3 +63,11 @@ form {
     font-size: 2em;
   }
 }
+#output {
+  max-width: 80%;
+  margin: 40px auto;
+  font-size: 2rem;
+}
+div {
+  margin-bottom: 20px;
+}

@@ -12,3 +12,30 @@ būti stilizuota su CSS ir būti responsive;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+
+document.querySelector('#btn').addEventListener('click', () => {
+    fetch(ENDPOINT)
+    .then((response) => response.json())
+    .then((data) => {
+        document.querySelector('#message').textContent = '';
+
+        data.forEach((user) => {
+            const login = document.createElement('h3');
+            login.innerText = user.login;
+            login.style.marginBottom = "10px";
+        
+            const avatar = document.createElement('img');
+            avatar.src = user.avatar_url;
+            avatar.style.width = "200px";
+            avatar.style.height = "200px";
+
+            const userCard = document.createElement('div');
+            userCard.style.display = "inline-block";
+            userCard.style.padding = "20px";
+
+            userCard.append(login,avatar);
+
+            document.querySelector('#output').append(userCard);
+        });
+    });
+});
